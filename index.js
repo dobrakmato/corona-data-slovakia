@@ -7,6 +7,7 @@ const districts = require('./districts');
 const wait = (ms) => new Promise((res) => setTimeout(res, ms));
 
 (async () => {
+    fs.mkdirSync('./responses', {recursive: true});
     for (const district of districts.districts) {
         console.log(`Downloading data for ${district}...`);
         const result = await fetch("https://wabi-west-europe-api.analysis.windows.net/public/reports/querydata?synchronous=true", {
