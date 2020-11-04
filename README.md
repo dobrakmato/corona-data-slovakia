@@ -22,3 +22,41 @@ This will convert the PowerBI data to usable format (JSON ans SQL files). The re
 yarn transform
 npm run transform
 ```
+
+
+### Examples of the data files
+
+SQL files will look like this:
+
+```sql
+INSERT INTO new_cases (timestamp, district, new_cases) VALUES 
+  ('2020-03-08', 'Bratislava', 1),
+  ('2020-03-11', 'Bratislava', 3),
+  ('2020-03-12', 'Bratislava', 7),
+  ('2020-03-13', 'Bratislava', 2),
+  ('2020-03-14', 'Bratislava', 7),
+  ('2020-03-15', 'Bratislava', 3),
+  ('2020-03-17', 'Bratislava', 10);
+```
+
+JSON files will look like this.
+
+```json
+[
+  {
+    "timestamp": 1583625600,
+    "new_cases": 1,
+    "district": "Bratislava"
+  },
+  {
+    "timestamp": 1583884800,
+    "new_cases": 3,
+    "district": "Bratislava"
+  },
+  {
+    "timestamp": 1583971200,
+    "new_cases": 7,
+    "district": "Bratislava"
+  }
+]
+```

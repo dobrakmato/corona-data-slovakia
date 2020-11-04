@@ -26,6 +26,7 @@ for (const file of fs.readdirSync('./responses')) {
 
         const sqlDate = new Date(transformed[i].timestamp);
         transformed[i].timestamp /= 1000;
+        transformed[i].district = file.replace('.json', '');
 
         sql += `  ('${sqlDate.toISOString().slice(0, 10)}', '${file.replace('.json', '')}', ${transformed[i].new_cases}),\n`;
     }
