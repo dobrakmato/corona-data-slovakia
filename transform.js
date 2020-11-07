@@ -4,7 +4,9 @@ const fs = require('fs');
 const transform = jsonata(`$.results[0].result.data.dsr.DS[0].PH[0].DM0.$merge([{"timestamp": 0, "new_cases": 0}, {"timestamp": C[0], "new_cases": C[1]}])`);
 let globalSql = 'DROP TABLE IF EXISTS  new_cases;\nCREATE TABLE new_cases (timestamp date, district varchar(64), new_cases int);\n';
 
-fs.mkdirSync('./output', {recursive: true});
+if (!fs.existsSync('./output')) {
+    fs.mkdirSync('./output', {recursive: true});
+}
 
 for (const file of fs.readdirSync('./responses')) {
 
